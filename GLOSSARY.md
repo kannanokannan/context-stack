@@ -1,3 +1,13 @@
+## Family Doctrine
+
+> Probabilistic intelligence must operate inside deterministic governance boundaries.
+
+This is the unifying principle across ContextOps, ContextBoundary, and Sthala. All three projects exist to implement this doctrine at different layers — organisational governance, data egress control, and execution architecture respectively.
+
+Do not introduce any term, feature, or design decision across the three projects that contradicts this doctrine.
+
+---
+
 # GLOSSARY.md — Canonical Terminology
 
 Single source of truth for all terms used across ContextOps, ContextBoundary, and Sthala.
