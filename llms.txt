@@ -1,0 +1,20 @@
+# context-stack
+
+> Canonical coordination layer for three sibling open-source AI governance projects: ContextOps, ContextBoundary, and Sthala.
+
+context-stack holds the locked terminology, cross-project decisions, and family framing for the AI governance stack at github.com/kannanokannan. It does not contain implementation detail — that lives in each project repo.
+
+License: Apache 2.0.
+
+## This repo
+
+- [README.md](https://github.com/kannanokannan/context-stack/blob/main/README.md): Family overview and project relationships
+- [GLOSSARY.md](https://github.com/kannanokannan/context-stack/blob/main/GLOSSARY.md): Canonical terminology — single source of truth for all terms across all three projects
+- [DECISIONS.md](https://github.com/kannanokannan/context-stack/blob/main/DECISIONS.md): Locked cross-project decisions with dates
+- [CLAUDE.md](https://github.com/kannanokannan/context-stack/blob/main/CLAUDE.md): Agent briefing for working across the stack
+
+## The three projects
+
+- [ContextOps](https://github.com/kannanokannan/ContextOps): How does an org govern its AI context? — v0.1 active
+- [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where is data allowed to go? — v0.1 active
+- [Sthala](https://github.com/kannanokannan/Sthala): Where does the AI actually run? — v0.1 Alpha
