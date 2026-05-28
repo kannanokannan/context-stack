@@ -25,6 +25,17 @@ Before introducing a new term in any project repo, it must be defined here first
 
 ---
 
+## Griha Terms
+
+| Term | Definition |
+|------|-----------|
+| Policy-bounded execution | Device or system actions that can only occur after passing deterministic validation and policy checks |
+| Approval gate | Human-in-the-loop checkpoint required before high-risk actions execute |
+| Provenance | Audit trail recording every intent, validation decision, and device action |
+| Product layer | Griha's position in the stack — above the three governance projects, inheriting all their principles |
+
+---
+
 ## ContextOps Terms
 
 | Term | Definition |
