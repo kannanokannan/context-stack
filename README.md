@@ -2,6 +2,14 @@
 
 Canonical coordination layer for three sibling open-source AI governance projects.
 
+## The Problem
+
+Modern AI systems let interpretation, decision-making, and execution share one trust boundary. That lets probabilistic systems directly own deterministic consequences — the root cause of prompt injection, unsafe automation, context contamination, and authority confusion.
+
+The context-stack separates interpretation from authority: intelligence proposes, governance validates, execution authorizes. Intelligence can suggest anything. Authority stays deterministic.
+
+---
+
 | Project | Question it answers | Status |
 |---------|-------------------|--------|
 | [ContextOps](https://github.com/kannanokannan/ContextOps) | How does an org govern its AI context? | v0.1 active |
