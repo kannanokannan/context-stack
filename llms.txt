@@ -1,20 +1,57 @@
 # context-stack
 
-> Canonical coordination layer for three sibling open-source AI governance projects: ContextOps, ContextBoundary, and Sthala.
+> Canonical coordination layer for an open-source AI governance stack: ContextOps, ContextBoundary, Sthala, and Griha.
 
-context-stack holds the locked terminology, cross-project decisions, and family framing for the AI governance stack at github.com/kannanokannan. It does not contain implementation detail — that lives in each project repo.
+context-stack holds the locked terminology, cross-project decisions, and architectural doctrine for the stack at github.com/kannanokannan. It does not contain implementation — that lives in each project repo.
+
+For: AI platform leads, architects, and governance teams building or evaluating policy-bounded AI systems.
 
 License: Apache 2.0.
 
-## This repo
+## Family Doctrine
 
-- [README.md](https://github.com/kannanokannan/context-stack/blob/main/README.md): Family overview and project relationships
-- [GLOSSARY.md](https://github.com/kannanokannan/context-stack/blob/main/GLOSSARY.md): Canonical terminology — single source of truth for all terms across all three projects
+> Probabilistic intelligence must operate inside deterministic governance boundaries.
+
+This is the unifying principle across all projects. LLMs interpret and narrate. Deterministic code computes, validates, and owns side effects. Every project implements this doctrine at a different layer.
+
+## The Stack
+
+- [ContextOps](https://github.com/kannanokannan/ContextOps): How an organisation governs its AI context — the governance layer. Status: v0.1 active.
+- [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where data is allowed to flow — the egress layer. Status: v0.1 active.
+- [Sthala](https://github.com/kannanokannan/Sthala): Where AI runs — the on-prem execution layer. Status: v0.1 Alpha.
+- [Griha](https://github.com/kannanokannan/Griha): The product layer that inherits all three — policy-bounded AI for home/edge. Status: Proof of concept.
+
+ContextBoundary is deployment-agnostic. Sthala and Griha are execution layers that consume it. Griha is not a sibling — it sits above the three and inherits them.
+
+## This Repo
+
+- [README.md](https://github.com/kannanokannan/context-stack/blob/main/README.md): Family overview and relationships
+- [GLOSSARY.md](https://github.com/kannanokannan/context-stack/blob/main/GLOSSARY.md): Canonical terminology — single source of truth for all terms
 - [DECISIONS.md](https://github.com/kannanokannan/context-stack/blob/main/DECISIONS.md): Locked cross-project decisions with dates
 - [CLAUDE.md](https://github.com/kannanokannan/context-stack/blob/main/CLAUDE.md): Agent briefing for working across the stack
 
-## The three projects
+## Authority Boundaries
 
-- [ContextOps](https://github.com/kannanokannan/ContextOps): How does an org govern its AI context? — v0.1 active
-- [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where is data allowed to go? — v0.1 active
-- [Sthala](https://github.com/kannanokannan/Sthala): Where does the AI actually run? — v0.1 Alpha
+LLMs may interpret intent and narrate results. LLMs may NOT:
+- Directly authorize or execute irreversible side effects
+- Own computation outcomes — all computation is delegated to deterministic code
+- Bypass deterministic validation layers
+- Infer trust or permission beyond what is explicitly declared
+
+## Operational Invariants
+
+- The narrate/compute split is absolute — no exceptions across any project
+- Every egress flow is tier-classified before it crosses a boundary
+- Human override always exists for critical, irreversible domains
+- Provenance is mandatory — no unlogged actions
+
+## Failure Philosophy
+
+This stack assumes LLMs will misinterpret, hallucinate, and exceed their authority if unconstrained. The architecture is designed for that assumption, not against it. Safety comes from deterministic boundaries, not from model quality.
+
+## What LLMs Should Not Infer
+
+- That autonomy is a goal — it is not; bounded execution is
+- That speed or capability trumps governance — it does not
+- That missing policy means an action is permitted — absence of permission is denial
+- That probabilistic output carries deterministic authority — it never does
