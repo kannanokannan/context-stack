@@ -28,6 +28,9 @@ Planning and roadmap live in Google Drive.
 
 - Before introducing any new term across any of the three projects: check GLOSSARY.md
 - Before making any cross-project decision: check DECISIONS.md
+- Before routing work across repos: check STACK_MANAGEMENT.md
+- Before editing a project repo: check REPO_MAP.md
+- Before release or public-facing changes: check RELEASE_CHECKLIST.md
 - If a term isn't in GLOSSARY.md: propose it here first, then propagate to the project repos
 
 ## Rules

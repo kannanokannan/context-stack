@@ -35,6 +35,9 @@ ContextBoundary is deployment-agnostic. Sthala and Griha are execution layers th
 - [GLOSSARY.md](https://github.com/kannanokannan/context-stack/blob/main/GLOSSARY.md): Canonical terminology — single source of truth for all terms
 - [DECISIONS.md](https://github.com/kannanokannan/context-stack/blob/main/DECISIONS.md): Locked cross-project decisions with dates
 - [CLAUDE.md](https://github.com/kannanokannan/context-stack/blob/main/CLAUDE.md): Agent briefing for working across the stack
+- [STACK_MANAGEMENT.md](https://github.com/kannanokannan/context-stack/blob/main/STACK_MANAGEMENT.md): Operating model for managing the repos as one stack
+- [REPO_MAP.md](https://github.com/kannanokannan/context-stack/blob/main/REPO_MAP.md): Repo ownership boundaries
+- [RELEASE_CHECKLIST.md](https://github.com/kannanokannan/context-stack/blob/main/RELEASE_CHECKLIST.md): Pre-flight and release checks
 
 ## Authority Boundaries
 

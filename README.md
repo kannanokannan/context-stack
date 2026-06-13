@@ -26,6 +26,9 @@ All Apache 2.0. All at github.com/kannanokannan.
 - **GLOSSARY.md** — single source of truth for all terminology used across the three projects
 - **DECISIONS.md** — locked cross-project decisions log with dates
 - **CLAUDE.md** — agent briefing for any LLM working across the stack
+- **STACK_MANAGEMENT.md** — operating model for managing the repos as one stack
+- **REPO_MAP.md** — repo ownership boundaries
+- **RELEASE_CHECKLIST.md** — pre-flight and release checks
 
 ## What This Repo Does Not Do
 
