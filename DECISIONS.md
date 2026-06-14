@@ -49,6 +49,21 @@ Locked decisions that govern all three projects. Dated. Do not revert without ex
 
 ---
 
+## 2026-06-14 - v0.2 Applied-Use-Case Baseline
+
+**Decision:** v0.2 confirms the current public stack model.
+- ContextOps governs AI context lifecycle, ownership, provenance, freshness, and renewal
+- ContextBoundary governs egress, capability exposure, invocation controls, approval, denial, and audit
+- Sthala remains governed runtime placement and implementation under ContextBoundary
+- Griha remains product/workflow proof-of-concept, not a fourth governance pillar
+
+**Decision:** v0.2 introduces no new public layer.
+- AgentAuthority is not part of the public stack model
+- Authority placement is not a public Sthala term
+- Candidate terms stay private or repo-local until a later decision promotes them
+
+---
+
 ## Cross-Project Anti-Decisions (Standing)
 
 These are permanent constraints across all three projects:

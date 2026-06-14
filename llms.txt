@@ -4,6 +4,8 @@
 
 context-stack holds the locked terminology, cross-project decisions, and architectural doctrine for the stack at github.com/kannanokannan. It does not contain implementation — that lives in each project repo.
 
+Current coordination baseline: v0.2. This confirms the existing public model and does not introduce a new public layer.
+
 For: AI platform leads, architects, and governance teams building or evaluating policy-bounded AI systems.
 
 License: Apache 2.0.

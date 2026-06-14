@@ -2,6 +2,8 @@
 
 Canonical coordination layer for three sibling open-source AI governance projects.
 
+Current coordination baseline: v0.2. Individual project versions remain listed below.
+
 ## The Problem
 
 Modern AI systems let interpretation, decision-making, and execution share one trust boundary. That lets probabilistic systems directly own deterministic consequences — the root cause of prompt injection, unsafe automation, context contamination, and authority confusion.
