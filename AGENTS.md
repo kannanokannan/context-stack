@@ -1,4 +1,4 @@
-# CLAUDE.md — context-stack Agent Briefing
+# AGENTS.md — context-stack Agent Briefing
 
 Read this before touching any file in this repo.
 
@@ -28,9 +28,6 @@ Planning and roadmap live in Google Drive.
 
 - Before introducing any new term across any of the three projects: check GLOSSARY.md
 - Before making any cross-project decision: check DECISIONS.md
-- Before routing work across repos: check STACK_MANAGEMENT.md
-- Before editing a project repo: check REPO_MAP.md
-- Before release or public-facing changes: check RELEASE_CHECKLIST.md
 - If a term isn't in GLOSSARY.md: propose it here first, then propagate to the project repos
 
 ## Rules
@@ -38,7 +35,7 @@ Planning and roadmap live in Google Drive.
 - Only locked, confirmed content goes here
 - No version suffixes like "Draft"
 - No parked or aspirational items
-- No project-specific implementation detail — that belongs in the project's own CLAUDE.md
+- No project-specific implementation detail — that belongs in the project's own AGENTS.md
 - Vendor-neutral language throughout
 - All three projects are Apache 2.0 — no license drift
 

@@ -41,8 +41,8 @@ All Apache 2.0. All at github.com/kannanokannan.
 ```
 ContextOps          → governs organisational AI context lifecycle
 ContextBoundary     → governs where data is allowed to flow (horizontal layer)
-Sthala              → one compliant on-premise implementation under ContextBoundary
+Sthala              → runtime placement and compliant implementation under ContextBoundary
 ```
 
-ContextBoundary is deployment-agnostic. Sthala is one vertical that consumes it.
+ContextBoundary is deployment-agnostic. Sthala is a runtime reference that consumes it.
 Do not conflate the three.

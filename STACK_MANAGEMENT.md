@@ -28,7 +28,7 @@ G:\My Drive\ai-stack
 | `context-stack` | Control plane | Terminology, decisions, repo ownership, release checks |
 | `ContextOps` | Context governance | Roles, practices, maturity, context lifecycle |
 | `ContextBoundary` | Egress governance | Data movement, tiers, zones, jurisdiction profiles |
-| `Sthala` | Runtime reference | Governed execution placement and on-prem reference architecture |
+| `Sthala` | Runtime reference | Runtime placement and governed implementation under ContextBoundary |
 | `Griha` | Product layer | User-facing governed workflow and adoption surface |
 | `kannanokannan.github.io` | Public front door | Website, discoverability, sitemap, public navigation |
 | `context-stack-mcp` | Delivery access | MCP endpoint and assistant-facing access to the stack |

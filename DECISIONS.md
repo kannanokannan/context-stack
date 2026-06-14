@@ -35,6 +35,20 @@ Locked decisions that govern all three projects. Dated. Do not revert without ex
 
 ---
 
+## 2026-06-14 — Planning and Decision Split
+
+**Decision:** Public repositories expose locked decisions only.
+- Cross-project decisions that are confirmed and stable belong in this file
+- Draft strategy, work sequencing, uncertainty, drift checks, and correction notes stay in private local planning files
+- Public repo files must not become roadmaps, backlogs, or working todo lists
+
+**Decision:** context-stack remains the public coordination layer.
+- It owns canonical terminology, locked relationship decisions, and cross-stack framing
+- It does not own implementation detail for individual pillar repos
+- It does not publish unconfirmed stack changes before they are explicitly locked
+
+---
+
 ## Cross-Project Anti-Decisions (Standing)
 
 These are permanent constraints across all three projects:

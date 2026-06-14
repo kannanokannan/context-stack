@@ -17,7 +17,7 @@ G:\My Drive\ai-stack
 | `context-stack` | `github.com/kannanokannan/context-stack` | Canonical terminology, locked decisions, stack management |
 | `ContextOps` | `github.com/kannanokannan/ContextOps` | Enterprise AI context governance framework |
 | `ContextBoundary` | `github.com/kannanokannan/ContextBoundary` | AI data egress governance specification |
-| `Sthala` | `github.com/kannanokannan/Sthala` | Sovereign on-prem AI runtime reference framework |
+| `Sthala` | `github.com/kannanokannan/Sthala` | Governed AI runtime placement reference framework |
 | `Griha` | `github.com/kannanokannan/Griha` | Product and workflow layer above the stack |
 | `kannanokannan.github.io` | `github.com/kannanokannan/kannanokannan.github.io` | Public website at `context-stack.org` |
 | `context-stack-mcp` | `github.com/kannanokannan/context-stack-mcp` | MCP endpoint for assistant-facing access |
@@ -81,7 +81,7 @@ Does not belong here:
 Belongs here:
 
 - Runtime placement
-- On-prem reference architecture
+- Governed runtime reference architecture
 - Narrate/compute split
 - Pipeline specification
 - Build-time constraints

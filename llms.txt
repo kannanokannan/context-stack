@@ -24,10 +24,10 @@ This is the unifying principle across all projects. LLMs interpret and narrate. 
 
 - [ContextOps](https://github.com/kannanokannan/ContextOps): How an organisation governs its AI context — the governance layer. Status: v0.1 active.
 - [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where data is allowed to flow — the egress layer. Status: v0.1 active.
-- [Sthala](https://github.com/kannanokannan/Sthala): Where AI runs — the on-prem execution layer. Status: v0.1 Alpha.
+- [Sthala](https://github.com/kannanokannan/Sthala): Where AI runs — the governed runtime reference. Status: v0.1 Alpha.
 - [Griha](https://github.com/kannanokannan/Griha): The product layer that inherits all three — policy-bounded AI for home/edge. Status: Proof of concept.
 
-ContextBoundary is deployment-agnostic. Sthala and Griha are execution layers that consume it. Griha is not a sibling — it sits above the three and inherits them.
+ContextBoundary is deployment-agnostic. Sthala consumes its egress contract as a governed runtime reference. Griha is not a sibling — it sits above the three and inherits them.
 
 ## This Repo
 
