@@ -33,6 +33,22 @@ All Apache 2.0. All at github.com/kannanokannan.
 - **RELEASE_CHECKLIST.md** — pre-flight and release checks
 - **okf/** — OKF-style bridge for agent-readable navigation; canonical sources remain the files above
 
+## OKF Bridge
+
+The `okf/` folder exposes the stack's control-plane knowledge in an Open Knowledge Format style layout for agents.
+
+This is a bridge, not a new source of truth. The canonical sources remain `GLOSSARY.md`, `DECISIONS.md`, `REPO_MAP.md`, and `STACK_MANAGEMENT.md`.
+
+Use `okf/index.md` as the agent-readable entry point for:
+
+- family doctrine
+- project roles
+- ContextBoundary / Sthala relationship
+- Egress Tier terminology
+- links back to canonical control-plane files
+
+Shared stack meaning belongs here in `context-stack`. Repo-local OKF folders, if added later, should contain only repo-owned domain knowledge and should link back to this central bridge.
+
 ## What This Repo Does Not Do
 
 - No implementation detail (lives in each project repo)
