@@ -31,6 +31,7 @@ All Apache 2.0. All at github.com/kannanokannan.
 - **STACK_MANAGEMENT.md** — operating model for managing the repos as one stack
 - **REPO_MAP.md** — repo ownership boundaries
 - **RELEASE_CHECKLIST.md** — pre-flight and release checks
+- **okf/** — OKF-style bridge for agent-readable navigation; canonical sources remain the files above
 
 ## What This Repo Does Not Do
 
