@@ -30,6 +30,7 @@ It is a bridge, not a second source of truth. Canonical definitions, decisions, 
 - [Griha](projects/griha.md)
 - [ContextBoundary and Sthala relationship](relationships/contextboundary-sthala.md)
 - [Egress Tier](terms/egress-tier.md)
+- [Authority Over Action](authority-over-action.md)
 
 ## Use
 
