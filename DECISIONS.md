@@ -64,6 +64,18 @@ Locked decisions that govern all three projects. Dated. Do not revert without ex
 
 ---
 
+## 2026-07-16 — Agent Authority Promoted to Public Module Status
+
+**Decision:** Agent Authority is part of the public stack model, as a module — not a layer.
+- Supersedes the 2026-06-14 restriction ("AgentAuthority is not part of the public stack model"), which was overtaken by the 2026-07-06 publication of the module in ContextOps, ContextBoundary, and okf/.
+- ContextOps `agent-authority.md` owns the governance definition (A1–A4: accountable ownership, Autonomy Tier, Least Agency, Tool Supply Policy).
+- ContextBoundary `agent-authority-enforcement.md` owns the runtime controls (E1–E3: identity at invocation, autonomy-tier gating, tool supply-chain filtering).
+- okf/authority-over-action.md is the doctrine entry; canonical source remains ContextOps.
+- Agent Authority is NOT a fourth governance pillar and NOT a new stack layer. It extends existing pillars.
+- Canonical terms registered in GLOSSARY.md same date.
+
+---
+
 ## Cross-Project Anti-Decisions (Standing)
 
 These are permanent constraints across all three projects:

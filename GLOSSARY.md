@@ -56,6 +56,11 @@ Before introducing a new term in any project repo, it must be defined here first
 | Pilot-to-Production Conversion Rate | Metric: % of AI pilots that reach production |
 | Two-Cost-Line Ratio | Metric: ratio of context production cost to context failure cost |
 | Two-Cost-Line Diagnostic | Tool: identifies whether context costs or failure costs dominate |
+| Agent Authority | Module (2026-07-06): governance of what an agent is permitted to do and who is accountable. Governance defined in ContextOps `agent-authority.md`; enforced by ContextBoundary. A module, not a stack layer |
+| Agent Accountability | Every agent has a single named accountable human owner. An agent with no accountable owner is out of policy by definition (A1) |
+| Autonomy Tier | Classification of how much an agent may do before a human decision is required — Trust Classification applied to action (A2). Distinct from Egress Tier |
+| Least Agency | Default stance: minimum Autonomy Tier and minimum tool surface sufficient for purpose; escalation is explicit, owned, time-bound (A3) |
+| Tool Supply Policy | Which tool/MCP sources an agent may consume, governed as a supply chain by source trust classification (A4) |
 
 ---
 
@@ -76,6 +81,9 @@ Before introducing a new term in any project repo, it must be defined here first
 | Agent-External Attestation | Verification that an agent's egress actions conform to the declared tier |
 | Deployment-Agnostic | ContextBoundary governs egress regardless of where the AI runs (cloud, on-prem, hybrid, edge) |
 | GDPR Audit Profile | ContextBoundary's first jurisdiction implementation — maps tiers to GDPR obligations |
+| Identity at Invocation | Agent Authority control E1: every invocation bound to the calling agent's accountable identity; unbindable invocations are blocked |
+| Autonomy-Tier Gating | Agent Authority control E2: discovery, invocation, and approval requirements gated on the agent's Autonomy Tier |
+| Tool Supply-Chain Filtering | Agent Authority control E3: untrusted-source tools/MCP capabilities filtered at discovery, before invocation is possible |
 
 ---
 
