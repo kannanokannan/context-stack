@@ -25,6 +25,8 @@ Before introducing a new term in any project repo, it must be defined here first
 
 ---
 
+| Stack Maturity Snapshot | Derivative cross-project view of pillar maturity; not a maturity model | All |
+
 ## Griha Terms
 
 | Term | Definition |

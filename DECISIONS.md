@@ -76,6 +76,14 @@ Locked decisions that govern all three projects. Dated. Do not revert without ex
 
 ---
 
+## 2026-07-27 — Stack Maturity Snapshot
+
+**Decision:** The Stack Maturity Snapshot lives in `context-stack` as a purely derivative control-plane view.
+- It aggregates the defined pillar ladders by their lowest defined level and adds no requirements of its own.
+- ContextOps retains ownership of organizational maturity; ContextBoundary retains ownership of runtime maturity.
+
+---
+
 ## Cross-Project Anti-Decisions (Standing)
 
 These are permanent constraints across all three projects:

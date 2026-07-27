@@ -32,6 +32,7 @@ Belongs here:
 - Locked cross-project decisions
 - Repo ownership map
 - Cross-repo release checklist
+- Cross-project maturity snapshot
 - Agent instructions for cross-project work
 
 Does not belong here:

@@ -30,6 +30,7 @@ All Apache 2.0. All at github.com/kannanokannan.
 - **CLAUDE.md** — agent briefing for any LLM working across the stack
 - **STACK_MANAGEMENT.md** — operating model for managing the repos as one stack
 - **REPO_MAP.md** — repo ownership boundaries
+- **stack-maturity-snapshot.md** — derivative cross-project maturity view
 - **RELEASE_CHECKLIST.md** — pre-flight and release checks
 - **okf/** — OKF-style bridge for agent-readable navigation; canonical sources remain the files above
 

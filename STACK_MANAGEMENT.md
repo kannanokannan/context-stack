@@ -59,6 +59,7 @@ Use this routing rule:
 | New cross-project term | `context-stack` | `GLOSSARY.md` |
 | New cross-project decision | `context-stack` | `DECISIONS.md` |
 | Context lifecycle or maturity | `ContextOps` | `context-stack` terms |
+| Cross-project maturity snapshot | `context-stack` | ContextOps, ContextBoundary, Sthala |
 | Data egress or sovereignty | `ContextBoundary` | `context-stack` terms |
 | Runtime placement | `Sthala` | `ContextBoundary` contract |
 | Product workflow | `Griha` | `ContextOps`, `ContextBoundary`, `Sthala` |
