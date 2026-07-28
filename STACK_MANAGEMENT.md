@@ -15,10 +15,10 @@ Before changing any pillar repo, check:
 3. `REPO_MAP.md` for ownership boundaries.
 4. `RELEASE_CHECKLIST.md` before public-facing commits.
 
-Do not use an old checkout under `Downloads` as the active workspace. The working stack lives under:
+Do not use an old checkout under `Downloads` as the active workspace. The working stack is the single local directory where all Context Stack repositories sit side by side:
 
 ```text
-G:\My Drive\ai-stack
+<workspace-root>
 ```
 
 ## Repo Roles
@@ -83,7 +83,7 @@ Do not create a cross-repo commit unless each repo has a clear reason to change.
 Live work status belongs outside git:
 
 ```text
-G:\My Drive\ai-stack\STACK_WORKBOARD.local.md
+<workspace-root>\STACK_WORKBOARD.local.md
 ```
 
 That file is for active work, current repo, last push, and next checks. It is not a source artifact and must not be committed.

@@ -17,7 +17,7 @@ Why these files:
 Files not touched:
 ```
 
-If the path is not under `G:\My Drive\ai-stack`, stop and re-check.
+If the current repository is not a direct child of `<workspace-root>`, or the sibling Context Stack repositories are not present in `<workspace-root>`, stop and re-check.
 
 ## 2. Ownership Check
 
@@ -85,4 +85,4 @@ After push:
 
 - Confirm remote branch updated.
 - For website/MCP, verify live endpoint.
-- Update `G:\My Drive\ai-stack\STACK_WORKBOARD.local.md` if the active state changed.
+- Update `<workspace-root>\STACK_WORKBOARD.local.md` if the active state changed.

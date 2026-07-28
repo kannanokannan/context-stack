@@ -7,8 +7,10 @@ Use this file when deciding where a change belongs.
 ## Canonical Workspace
 
 ```text
-G:\My Drive\ai-stack
+<workspace-root>
 ```
+
+`<workspace-root>` is the local directory containing all Context Stack repositories. Its actual location is operator-specific; all repositories sit side by side in this single local directory.
 
 ## Repositories
 
