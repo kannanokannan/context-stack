@@ -19,6 +19,7 @@ Use this file when deciding where a change belongs.
 | `context-stack` | `github.com/kannanokannan/context-stack` | Canonical terminology, locked decisions, stack management |
 | `ContextOps` | `github.com/kannanokannan/ContextOps` | Enterprise AI context governance framework |
 | `ContextBoundary` | `github.com/kannanokannan/ContextBoundary` | AI data egress governance specification |
+| `contextboundary-gw` | `github.com/kannanokannan/contextboundary-gw` | ContextBoundary reference gateway and conformance suite |
 | `Sthala` | `github.com/kannanokannan/Sthala` | Governed AI runtime placement reference framework |
 | `Griha` | `github.com/kannanokannan/Griha` | Product and workflow layer above the stack |
 | `kannanokannan.github.io` | `github.com/kannanokannan/kannanokannan.github.io` | Public website at `context-stack.org` |
@@ -78,6 +79,23 @@ Does not belong here:
 - ContextOps maturity model
 - Sthala runtime implementation details
 - Product workflow copy
+
+### `contextboundary-gw`
+
+Belongs here:
+
+- Reference gateway implementation
+- Compiled policy artifacts
+- Sealed receipt generation
+- Conformance scenarios and their runner
+- Generated conformance report
+
+Does not belong here:
+
+- Egress Tier definitions
+- Jurisdictional audit profiles
+- Framework doctrine
+- Public website copy
 
 ### `Sthala`
 
@@ -147,6 +165,8 @@ Does not belong here:
 If the change defines what the stack means, start in `context-stack`.
 
 If the change defines how one pillar works, use that pillar repo.
+
+If the change is the reference gateway implementation, use `contextboundary-gw`.
 
 If the change explains the stack to the public, use `kannanokannan.github.io`.
 
