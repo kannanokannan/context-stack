@@ -21,7 +21,7 @@ Before introducing a new term in any project repo, it must be defined here first
 | Term | Definition | Used In |
 |------|-----------|---------|
 | Context Stack | The three sibling projects together (ContextOps + ContextBoundary + Sthala) | All |
-| Apache 2.0 | The license for all three projects — no exceptions | All |
+| Apache 2.0 | The license for every Context Stack repository — no exceptions | All |
 
 ---
 
