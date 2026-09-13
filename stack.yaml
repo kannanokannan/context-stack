@@ -1,0 +1,95 @@
+# Canonical inventory of Context Stack repositories.
+#
+# scripts/verify_stack.py gates the published registries against this file.
+# REPO_MAP.md is the prose ownership map for humans; this is the same fact set
+# in a form a check can read. If they disagree, the check fails.
+#
+# The `surfaces` list on each repository records WHERE that repository must be
+# listed. The registries legitimately differ in scope, and that difference is
+# recorded here on purpose rather than left to be rediscovered:
+#
+#   repo_map           REPO_MAP.md in this repository. Every repository, no exceptions.
+#   repositories_html  The public repository page. Everything except the website
+#                      itself, since a page cannot usefully list its own repository.
+#   mcp_projects       projects[] in context-stack-mcp. Governance layers only.
+#                      Each entry there carries a `layer` and a `question`, so it
+#                      is a catalog of layers, not of repositories. The gateway is
+#                      ContextBoundary's implementation, the website is a publishing
+#                      surface, and the MCP server is the access path - none of the
+#                      three is a layer, so none appears there.
+
+version: 1
+updated: 2026-09-13
+owner: https://github.com/kannanokannan
+
+repositories:
+  - id: context-stack
+    name: context-stack
+    repo: https://github.com/kannanokannan/context-stack
+    role: Canonical terminology, locked decisions, stack management
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html, mcp_projects]
+
+  - id: ContextOps
+    name: ContextOps
+    repo: https://github.com/kannanokannan/ContextOps
+    role: Enterprise AI context governance framework
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html, mcp_projects]
+
+  - id: ContextBoundary
+    name: ContextBoundary
+    repo: https://github.com/kannanokannan/ContextBoundary
+    role: AI data egress governance specification
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html, mcp_projects]
+
+  - id: contextboundary-gw
+    name: contextboundary-gw
+    repo: https://github.com/kannanokannan/contextboundary-gw
+    role: ContextBoundary reference gateway and conformance suite
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html]
+
+  - id: Sthala
+    name: Sthala
+    repo: https://github.com/kannanokannan/Sthala
+    role: Governed AI runtime placement reference framework
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html, mcp_projects]
+
+  - id: Griha
+    name: Griha
+    repo: https://github.com/kannanokannan/Griha
+    role: Product and workflow layer above the stack
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html, mcp_projects]
+
+  - id: kannanokannan.github.io
+    name: kannanokannan.github.io
+    repo: https://github.com/kannanokannan/kannanokannan.github.io
+    role: Public website at context-stack.org
+    license: Apache-2.0
+    surfaces: [repo_map]
+
+  - id: context-stack-mcp
+    name: context-stack-mcp
+    repo: https://github.com/kannanokannan/context-stack-mcp
+    role: MCP endpoint for assistant-facing access
+    license: Apache-2.0
+    surfaces: [repo_map, repositories_html]
+
+# ---------------------------------------------------------------------------
+# Open question, deliberately NOT encoded as a fact.
+#
+# GLOSSARY.md and ContextOps/AGENTS.md describe the Context Stack as THREE
+# sibling governance projects with Griha as a product layer above them, and
+# AGENTS.md adds "do not conflate these scopes". context-stack-mcp's glossary
+# line and the website's "One stack, four questions" describe FOUR.
+#
+# This file does not take a side. verify_stack.py reports the disagreement as a
+# WARNING and does not fail on it. Once the question is decided, record the
+# answer below and the check becomes a hard gate.
+composition:
+  decided: false
+  statement: null
