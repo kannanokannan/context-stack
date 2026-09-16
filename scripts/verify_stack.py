@@ -28,6 +28,7 @@ RAW = "https://raw.githubusercontent.com/kannanokannan"
 SURFACES = {
     "repositories_html": f"{RAW}/kannanokannan.github.io/main/repositories.html",
     "mcp_projects": f"{RAW}/context-stack-mcp/main/src/stack-catalog.js",
+    "index_html": f"{RAW}/kannanokannan.github.io/main/index.html",
 }
 
 passed = []
@@ -98,6 +99,9 @@ def expected(surface):
 with open("REPO_MAP.md", "r", encoding="utf-8") as fh:
     repo_map = fh.read()
 
+with open("GLOSSARY.md", "r", encoding="utf-8") as fh:
+    repo_map_glossary = fh.read()
+
 table = re.findall(r"^\| `([^`]+)` \| `([^`]+)` \|", repo_map, re.M)
 sections = re.findall(r"^### `([^`]+)`", repo_map, re.M)
 want = expected("repo_map")
@@ -162,20 +166,44 @@ if not offline:
     else:
         bad("G7 contextboundary-gw appears nowhere in stack-catalog.js")
 
-# --------------------------------------------- composition (warning only)
+# --------------------------------------------------------- composition
 
 comp = manifest.get("composition", {})
-if comp.get("decided"):
-    bad("C1 composition is marked decided but this check has not been implemented yet")
+
+if not comp.get("decided"):
+    warn("C1 composition is undecided in stack.yaml; no gate applied")
 else:
-    three = "three sibling projects" in open("GLOSSARY.md", encoding="utf-8").read()
-    four = (not offline) and "plus Griha as the product layer" in fetched["mcp_projects"]
-    if three and four:
-        warn("C1 stack composition is stated as THREE in GLOSSARY.md and FOUR in "
-             "stack-catalog.js. Undecided, so not failing. Record the answer in "
-             "stack.yaml -> composition to turn this into a gate.")
+    known = {r["id"] for r in repos}
+    spec = list(comp.get("specification", []))
+    impl = list(comp.get("implementations", []))
+    missing = [n for n in spec + impl if n not in known]
+    if missing:
+        bad("C1 composition names repositories absent from the manifest: %s" % ", ".join(missing))
+    elif not spec:
+        bad("C1 composition is decided but names no specification repositories")
     else:
-        warn("C1 composition is undecided in stack.yaml; no gate applied")
+        ok("C1 composition: %d specification + %d implementation repositories, all in the manifest"
+           % (len(spec), len(impl)))
+
+    # Retired wording must not survive anywhere. Case-insensitive on purpose: the
+    # first version of this check was case-sensitive and missed a capitalised
+    # "Product/adoption layer" while matching an unrelated line, which read as a
+    # plausible number rather than a failure.
+    sources = {"GLOSSARY.md": repo_map_glossary}
+    if not offline:
+        sources["stack-catalog.js"] = fetched["mcp_projects"]
+        sources["repositories.html"] = fetched["repositories_html"]
+        sources["index.html"] = fetched["index_html"]
+
+    hits = []
+    for phrase in comp.get("retired_phrases", []):
+        for name, text in sources.items():
+            if phrase.lower() in text.lower():
+                hits.append("%r in %s" % (phrase, name))
+    if hits:
+        bad("C2 retired composition wording still present: " + "; ".join(hits))
+    else:
+        ok("C2 no retired composition wording in %d surface(s)" % len(sources))
 
 # --------------------------------------------------------------- summary
 
