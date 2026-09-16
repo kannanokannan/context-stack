@@ -80,16 +80,35 @@ repositories:
     surfaces: [repo_map, repositories_html]
 
 # ---------------------------------------------------------------------------
-# Open question, deliberately NOT encoded as a fact.
+# Composition - decided 2026-09-15, option A.
 #
-# GLOSSARY.md and ContextOps/AGENTS.md describe the Context Stack as THREE
-# sibling governance projects with Griha as a product layer above them, and
-# AGENTS.md adds "do not conflate these scopes". context-stack-mcp's glossary
-# line and the website's "One stack, four questions" describe FOUR.
+# GLOSSARY.md and ContextOps/AGENTS.md said THREE sibling projects with Griha
+# above; context-stack-mcp and the website said FOUR. Two external reviewers read
+# four off the site. Ratified as option A: the Stack is the specification, and
+# everything that applies it is a reference implementation.
 #
-# This file does not take a side. verify_stack.py reports the disagreement as a
-# WARNING and does not fail on it. Once the question is decided, record the
-# answer below and the check becomes a hard gate.
+# verify_stack.py now gates this rather than warning about it.
 composition:
-  decided: false
-  statement: null
+  decided: true
+  decided_on: 2026-09-15
+  statement: >
+    The Context Stack is the specification layer: ContextOps and ContextBoundary.
+    contextboundary-gw, Sthala and Griha are reference implementations that apply
+    that specification at different scales - a reference gateway, an airgapped
+    commodity-x86 deployment, and a home worked example. Specification and
+    implementation are named separately because they are adopted separately.
+  specification:
+    - ContextOps
+    - ContextBoundary
+  implementations:
+    - contextboundary-gw
+    - Sthala
+    - Griha
+  # Wording the decision retired. verify_stack.py fails if any of these survives
+  # on any gated surface. Matching is case-insensitive.
+  retired_phrases:
+    - "three sibling projects"
+    - "plus Griha as the product layer"
+    - "One stack, four questions"
+    - "product/adoption layer"
+    - "governed runtime reference"
