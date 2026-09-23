@@ -24,12 +24,13 @@ This is the unifying principle across all projects. LLMs interpret and narrate. 
 
 ## The Stack
 
-- [ContextOps](https://github.com/kannanokannan/ContextOps): How an organisation governs its AI context — the governance layer. Status: v0.1 active.
-- [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where data is allowed to flow — the egress layer. Status: v0.1 active.
-- [Sthala](https://github.com/kannanokannan/Sthala): Where AI runs — the governed runtime reference. Status: v0.1 Alpha.
-- [Griha](https://github.com/kannanokannan/Griha): The product layer that inherits all three — policy-bounded AI for home/edge. Status: Proof of concept.
+- [ContextOps](https://github.com/kannanokannan/ContextOps): How an organisation governs its AI context — specification. Status: v0.1 active.
+- [ContextBoundary](https://github.com/kannanokannan/ContextBoundary): Where data is allowed to flow — specification. Status: v0.1 active.
+- [contextboundary-gw](https://github.com/kannanokannan/contextboundary-gw): Reference gateway and conformance suite for ContextBoundary. Status: v1.1.0.
+- [Sthala](https://github.com/kannanokannan/Sthala): Governed runtime placement — reference implementation. Status: v0.1 Alpha.
+- [Griha](https://github.com/kannanokannan/Griha): Worked example for home and edge — reference implementation. Status: Proof of concept.
 
-ContextBoundary is deployment-agnostic. Sthala consumes its egress contract as a governed runtime reference. Griha is not a sibling — it sits above the three and inherits them.
+ContextBoundary is deployment-agnostic. ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it.
 
 ## This Repo
 
