@@ -2,7 +2,7 @@
 
 > Probabilistic intelligence must operate inside deterministic governance boundaries.
 
-This is the unifying principle across the whole family. ContextOps and ContextBoundary are the specification layer — organisational governance and data egress control. contextboundary-gw, Sthala and Griha are reference implementations that apply that specification at different scales.
+This is the unifying principle across the whole family. The stack's composition is defined once, in COMPOSITION.md; the Context Stack entry below states it verbatim.
 
 Do not introduce any term, feature, or design decision anywhere in the family that contradicts this doctrine.
 
@@ -20,7 +20,7 @@ Before introducing a new term in any project repo, it must be defined here first
 
 | Term | Definition | Used In |
 |------|-----------|---------|
-| Context Stack | The specification layer: ContextOps and ContextBoundary. contextboundary-gw, Sthala and Griha are reference implementations of it | All |
+| Context Stack | ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it. See COMPOSITION.md | All |
 | Apache 2.0 | The license for every Context Stack repository — no exceptions | All |
 
 ---
@@ -34,7 +34,7 @@ Before introducing a new term in any project repo, it must be defined here first
 | Policy-bounded execution | Device or system actions that can only occur after passing deterministic validation and policy checks |
 | Approval gate | Human-in-the-loop checkpoint required before high-risk actions execute |
 | Provenance | Audit trail recording every intent, validation decision, and device action |
-| Product layer | Griha's position in the stack — above the three governance projects, inheriting all their principles |
+| Product layer | **Retired 2026-09-15.** Griha is a reference implementation, not a tier above anything. See COMPOSITION.md |
 
 ---
 

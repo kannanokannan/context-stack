@@ -112,3 +112,54 @@ composition:
     - "One stack, four questions"
     - "product/adoption layer"
     - "governed runtime reference"
+
+  # --- added 2026-09-22 (PART 86) ------------------------------------------
+  # The canonical prose lives in COMPOSITION.md; this is the same fact as data.
+  # A repository may describe itself. It may not describe the stack's shape.
+  # PART 92 replaces the C2 check with X1/X2/X3 reading the keys below. Until
+  # then verify_stack.py ignores them and C1/C2 are unchanged.
+  canonical_statement: COMPOSITION.md
+  canonical_one_line: >-
+    ContextOps and ContextBoundary are the specification layer.
+    contextboundary-gw, Sthala and Griha are reference implementations that apply it.
+
+  roles:
+    ContextOps:
+      kind: specification
+      role: Organizational context governance
+    ContextBoundary:
+      kind: specification
+      role: Data egress and action governance
+    contextboundary-gw:
+      kind: implementation
+      of: [ContextBoundary]
+      role: Reference gateway and conformance suite
+    Sthala:
+      kind: implementation
+      of: [ContextOps, ContextBoundary]
+      role: Governed runtime placement
+    Griha:
+      kind: implementation
+      of: [ContextOps, ContextBoundary]
+      role: Worked example for home and edge; applies Sthala's narrate/compute constraint
+    context-stack:
+      kind: control-plane
+      role: Canonical terminology, locked decisions, stack management
+    context-stack-mcp:
+      kind: access-path
+      role: Assistant-facing MCP endpoint
+    kannanokannan.github.io:
+      kind: publishing-surface
+      role: Public website at context-stack.org
+
+  # The only files permitted to state the stack's shape. PART 92's X2 asserts
+  # canonical_one_line appears in each, byte-identical. They are aligned to it
+  # in PARTs 87-91, so X2 stays off until then.
+  canonical_surfaces:
+    - context-stack/COMPOSITION.md
+    - context-stack/README.md
+    - context-stack/GLOSSARY.md
+    - context-stack/llms.txt
+    - context-stack-mcp/src/stack-catalog.js
+    - kannanokannan.github.io/index.html
+    - kannanokannan.github.io/repositories.html
