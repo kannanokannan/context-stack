@@ -21,7 +21,7 @@ Use this file when deciding where a change belongs.
 | `ContextBoundary` | `github.com/kannanokannan/ContextBoundary` | AI data egress governance specification |
 | `contextboundary-gw` | `github.com/kannanokannan/contextboundary-gw` | ContextBoundary reference gateway and conformance suite |
 | `Sthala` | `github.com/kannanokannan/Sthala` | Governed AI runtime placement reference framework |
-| `Griha` | `github.com/kannanokannan/Griha` | Product and workflow layer above the stack |
+| `Griha` | `github.com/kannanokannan/Griha` | Reference implementation: worked example for home and edge |
 | `kannanokannan.github.io` | `github.com/kannanokannan/kannanokannan.github.io` | Public website at `context-stack.org` |
 | `context-stack-mcp` | `github.com/kannanokannan/context-stack-mcp` | MCP endpoint for assistant-facing access |
 
@@ -78,7 +78,7 @@ Does not belong here:
 
 - ContextOps maturity model
 - Sthala runtime implementation details
-- Product workflow copy
+- Griha workflow copy
 
 ### `contextboundary-gw`
 
@@ -102,7 +102,7 @@ Does not belong here:
 Belongs here:
 
 - Runtime placement
-- Governed runtime reference architecture
+- Reference architecture for governed runtime placement
 - Narrate/compute split
 - Pipeline specification
 - Build-time constraints
@@ -117,10 +117,9 @@ Does not belong here:
 
 Belongs here:
 
-- Product workflows
+- Worked-example workflows for home and edge
 - User-facing governed AI experience
-- Practical adoption layer
-- Policy-bounded execution in product form
+- Policy-bounded execution in a running system
 
 Does not belong here:
 

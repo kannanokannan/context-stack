@@ -12,7 +12,7 @@ related:
 
 # ContextOps
 
-ContextOps answers: how does an organisation govern its AI context?
+ContextOps is a specification: organizational context governance.
 
 It owns:
 

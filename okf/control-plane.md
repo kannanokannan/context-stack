@@ -11,7 +11,7 @@ related:
 
 # Context Stack Control Plane
 
-`context-stack` is the coordination layer for the stack.
+`context-stack` is the stack's control plane. It is not part of the composition; it records it in COMPOSITION.md.
 
 It owns:
 

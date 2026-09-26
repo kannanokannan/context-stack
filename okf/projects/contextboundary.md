@@ -13,7 +13,7 @@ related:
 
 # ContextBoundary
 
-ContextBoundary answers: where is data allowed to go?
+ContextBoundary is a specification: data egress and action governance.
 
 It owns:
 
