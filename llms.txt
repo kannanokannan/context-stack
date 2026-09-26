@@ -1,6 +1,6 @@
 # context-stack
 
-> Canonical coordination layer for an open-source AI governance stack: ContextOps, ContextBoundary, Sthala, and Griha.
+> Control plane for the Context Stack, an open-source AI governance stack. It is not part of the composition; it records it.
 
 context-stack holds the locked terminology, cross-project decisions, and architectural doctrine for the stack at github.com/kannanokannan. It does not contain implementation — that lives in each project repo.
 
@@ -20,7 +20,7 @@ The context-stack separates interpretation from authority: intelligence proposes
 
 > Probabilistic intelligence must operate inside deterministic governance boundaries.
 
-This is the unifying principle across all projects. LLMs interpret and narrate. Deterministic code computes, validates, and owns side effects. Every project implements this doctrine at a different layer.
+This is the unifying principle across all projects. LLMs interpret and narrate. Deterministic code computes, validates, and owns side effects. Every repository in the stack applies this doctrine.
 
 ## The Stack
 

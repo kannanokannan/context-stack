@@ -25,14 +25,14 @@ Do not use an old checkout under `Downloads` as the active workspace. The workin
 
 | Repo | Role | Owns |
 |------|------|------|
-| `context-stack` | Control plane | Terminology, decisions, repo ownership, release checks |
-| `ContextOps` | Context governance | Roles, practices, maturity, context lifecycle |
-| `ContextBoundary` | Egress governance | Data movement, tiers, zones, jurisdiction profiles |
+| `context-stack` | Control plane | Terminology, decisions, composition, repo ownership, release checks |
+| `ContextOps` | Specification | Organizational context governance: roles, practices, maturity, context lifecycle |
+| `ContextBoundary` | Specification | Data egress and action governance: data movement, tiers, zones, jurisdiction profiles |
 | `contextboundary-gw` | Reference implementation | ContextBoundary reference gateway, compiled policy, conformance suite |
-| `Sthala` | Reference implementation | Runtime placement and governed implementation under ContextBoundary |
-| `Griha` | Reference implementation | User-facing governed workflow and adoption surface |
-| `kannanokannan.github.io` | Public front door | Website, discoverability, sitemap, public navigation |
-| `context-stack-mcp` | Delivery access | MCP endpoint and assistant-facing access to the stack |
+| `Sthala` | Reference implementation | Governed runtime placement; applies ContextOps and ContextBoundary |
+| `Griha` | Reference implementation | Worked example for home and edge; applies Sthala's narrate/compute constraint |
+| `kannanokannan.github.io` | Publishing surface | Website, discoverability, sitemap, public navigation |
+| `context-stack-mcp` | Access path | MCP endpoint and assistant-facing access to the stack |
 
 ## Pre-Flight For Any Codex Session
 
@@ -63,7 +63,7 @@ Use this routing rule:
 | Cross-project maturity snapshot | `context-stack` | ContextOps, ContextBoundary, Sthala |
 | Data egress or sovereignty | `ContextBoundary` | `context-stack` terms |
 | Runtime placement | `Sthala` | `ContextBoundary` contract |
-| Product workflow | `Griha` | `ContextOps`, `ContextBoundary`, `Sthala` |
+| Worked-example workflow | `Griha` | `ContextOps`, `ContextBoundary`, `Sthala` |
 | Public positioning | `kannanokannan.github.io` | all source repos |
 | Assistant/MCP access | `context-stack-mcp` | `context-stack`, source repos |
 

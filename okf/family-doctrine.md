@@ -18,4 +18,4 @@ Across the stack:
 - Missing permission is not permission.
 - Governance remains the authority layer.
 
-This doctrine governs ContextOps, ContextBoundary, Sthala, and Griha.
+This doctrine governs every repository in the Context Stack.

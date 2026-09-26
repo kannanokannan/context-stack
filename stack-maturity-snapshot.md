@@ -16,7 +16,7 @@ This is not a new framework layer or a maturity model. It adds no requirements a
 | ContextBoundary | Runtime maturity | Levels 0–5 | [maturity-ladder.md](https://github.com/kannanokannan/ContextBoundary/blob/main/maturity-ladder.md) in the ContextBoundary repository |
 | Sthala | Not yet defined | — | Open gap; see below |
 
-Griha is excluded because it is a product and proof surface, not a pillar; whether it belongs in a future snapshot is an open decision.
+Griha is excluded: it is a worked example and defines no maturity ladder of its own. Whether it belongs in a future snapshot is an open decision.
 
 ## Aggregation Rule
 

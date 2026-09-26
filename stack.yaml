@@ -11,15 +11,15 @@
 #   repo_map           REPO_MAP.md in this repository. Every repository, no exceptions.
 #   repositories_html  The public repository page. Everything except the website
 #                      itself, since a page cannot usefully list its own repository.
-#   mcp_projects       projects[] in context-stack-mcp. Governance layers only.
-#                      Each entry there carries a `layer` and a `question`, so it
-#                      is a catalog of layers, not of repositories. The gateway is
-#                      ContextBoundary's implementation, the website is a publishing
-#                      surface, and the MCP server is the access path - none of the
-#                      three is a layer, so none appears there.
+#   mcp_projects       projects[] in context-stack-mcp. Each entry carries a `kind`
+#                      and a `role` copied from composition.roles below. The gateway
+#                      is listed under ContextBoundary's entry and named in the
+#                      overview; the website and the MCP server itself are not
+#                      entries. It is a catalog of what an assistant is routed to,
+#                      not of repositories. It is not a catalog of layers.
 
 version: 1
-updated: 2026-09-13
+updated: 2026-09-26
 owner: https://github.com/kannanokannan
 
 repositories:
@@ -61,7 +61,7 @@ repositories:
   - id: Griha
     name: Griha
     repo: https://github.com/kannanokannan/Griha
-    role: Product and workflow layer above the stack
+    role: Reference implementation - worked example for home and edge
     license: Apache-2.0
     surfaces: [repo_map, repositories_html, mcp_projects]
 

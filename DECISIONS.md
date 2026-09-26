@@ -1,6 +1,6 @@
 # DECISIONS.md — Cross-Project Locked Decisions
 
-Locked decisions that govern all three projects. Dated. Do not revert without explicit discussion.
+Locked decisions that govern every repository in the Context Stack. Dated. Do not revert without explicit discussion. Dated entries are history: a later entry supersedes an earlier one, it does not edit it.
 
 ---
 
@@ -81,6 +81,23 @@ Locked decisions that govern all three projects. Dated. Do not revert without ex
 **Decision:** The Stack Maturity Snapshot lives in `context-stack` as a purely derivative control-plane view.
 - It aggregates the defined pillar ladders by their lowest defined level and adds no requirements of its own.
 - ContextOps retains ownership of organizational maturity; ContextBoundary retains ownership of runtime maturity.
+
+---
+
+## 2026-09-15 — Composition
+
+**Decision:** The Context Stack is the specification layer. Three repositories are reference implementations that apply it.
+- ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it.
+- The canonical statement is COMPOSITION.md. The machine-readable copy is `stack.yaml` -> `composition`. Changing the composition means changing DECISIONS.md, COMPOSITION.md and stack.yaml in one change.
+- context-stack (control plane), context-stack-mcp (access path) and kannanokannan.github.io (publishing surface) are part of the program, not of the composition.
+- Retired: "three sibling governance projects", and any framing that puts Griha, or anything else, above the stack.
+- Supersedes the 2026-06-14 v0.2 baseline line "Griha remains product/workflow proof-of-concept". Griha is a reference implementation: a worked example for home and edge.
+- Where an earlier entry says "all three projects", it means the specifications and the reference implementations.
+
+**Decision:** A repository may describe itself. It may not describe the stack's shape.
+- The files permitted to state the shape are enumerated in `stack.yaml` -> `composition.canonical_surfaces`, and they state it in the canonical words.
+
+Ratified 2026-09-15. Published in COMPOSITION.md before this entry existed; recorded here so the decision log and the composition agree.
 
 ---
 

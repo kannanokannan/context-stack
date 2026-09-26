@@ -3,7 +3,7 @@ type: project
 title: Griha
 github: https://github.com/kannanokannan/Griha
 canonical_source: ../../REPO_MAP.md
-role: product and workflow layer
+role: reference implementation - worked example for home and edge
 related:
   - ./contextops.md
   - ./contextboundary.md
@@ -12,13 +12,12 @@ related:
 
 # Griha
 
-Griha is the product and workflow layer above the stack.
+Griha is a reference implementation: a worked example for home and edge.
 
 It owns:
 
-- product workflows
+- worked-example workflows for home and edge
 - user-facing governed AI experience
-- practical adoption layer
-- policy-bounded execution in product form
+- policy-bounded execution in a running system
 
-Griha inherits ContextOps, ContextBoundary, and Sthala principles. It is not a fourth governance pillar.
+Griha applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint. It is not a fourth governance pillar.

@@ -4,29 +4,27 @@ Read this before touching any file in this repo.
 
 ## What This Repo Is
 
-context-stack is the canonical coordination layer above three sibling open-source projects. It holds locked decisions, canonical terminology, and family framing — nothing else.
+context-stack is the stack's control plane. It holds locked decisions, canonical terminology, the composition, and stack management — nothing else. It is not part of the composition.
 
 **This repo contains only confirmed, locked content. No parked items. No roadmap. No backlog.**
 Planning and roadmap live in Google Drive.
 
-## The Three Projects
+## The Composition
 
-| Project | Answers | Repo |
-|---------|---------|------|
-| ContextOps | How does an org govern its AI context? | https://github.com/kannanokannan/ContextOps |
-| ContextBoundary | Where is data allowed to go? | https://github.com/kannanokannan/ContextBoundary |
-| Sthala | Where does the AI actually run? | https://github.com/kannanokannan/Sthala |
+ContextOps and ContextBoundary are the specification layer. contextboundary-gw, Sthala and Griha are reference implementations that apply it.
+
+Defined once, in COMPOSITION.md. Each repository's kind and role are recorded as data in `stack.yaml` -> `composition.roles`. Do not restate the shape anywhere else; quote the sentence above byte-identical or link to COMPOSITION.md.
 
 ## Relationships (Do Not Conflate)
 
 - ContextOps = organisational governance layer
 - ContextBoundary = horizontal egress governing layer (deployment-agnostic)
-- Sthala = governed runtime placement reference under ContextBoundary
+- Sthala = reference implementation for governed runtime placement; it consumes ContextBoundary's egress contract
 - ContextBoundary is not Sthala. Sthala is a consumer of ContextBoundary, not a peer.
 
 ## How To Use This Repo
 
-- Before introducing any new term across any of the three projects: check GLOSSARY.md
+- Before introducing any new term in any repository of the stack: check GLOSSARY.md
 - Before making any cross-project decision: check DECISIONS.md
 - If a term isn't in GLOSSARY.md: propose it here first, then propagate to the project repos
 
@@ -37,7 +35,7 @@ Planning and roadmap live in Google Drive.
 - No parked or aspirational items
 - No project-specific implementation detail — that belongs in the project's own AGENTS.md
 - Vendor-neutral language throughout
-- All three projects are Apache 2.0 — no license drift
+- Every repository in the stack is Apache 2.0 — no license drift
 
 ## Commit Style
 

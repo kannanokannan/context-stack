@@ -3,7 +3,7 @@ type: project
 title: Sthala
 github: https://github.com/kannanokannan/Sthala
 canonical_source: ../../REPO_MAP.md
-role: governed runtime placement reference
+role: reference implementation - governed runtime placement
 related:
   - ../relationships/contextboundary-sthala.md
   - ./contextboundary.md
@@ -11,12 +11,12 @@ related:
 
 # Sthala
 
-Sthala answers: where does the AI actually run?
+Sthala is a reference implementation: governed runtime placement. It applies ContextOps and ContextBoundary.
 
 It owns:
 
 - runtime placement
-- governed runtime reference architecture
+- reference architecture for governed runtime placement
 - narrate/compute split
 - pipeline specification
 - build-time constraints
