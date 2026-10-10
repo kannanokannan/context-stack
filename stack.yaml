@@ -104,20 +104,12 @@ composition:
     - contextboundary-gw
     - Sthala
     - Griha
-  # Wording the decision retired. verify_stack.py fails if any of these survives
-  # on any gated surface. Matching is case-insensitive.
-  retired_phrases:
-    - "three sibling projects"
-    - "plus Griha as the product layer"
-    - "One stack, four questions"
-    - "product/adoption layer"
-    - "governed runtime reference"
 
   # --- added 2026-09-22 (PART 86) ------------------------------------------
   # The canonical prose lives in COMPOSITION.md; this is the same fact as data.
   # A repository may describe itself. It may not describe the stack's shape.
-  # PART 92 replaces the C2 check with X1/X2/X3 reading the keys below. Until
-  # then verify_stack.py ignores them and C1/C2 are unchanged.
+  # verify_stack.py X1-X4 read the keys below (PART 92). The C2 phrase list over
+  # four files is gone: it missed 35 of 45 contradictions (AUDIT A-01).
   canonical_statement: COMPOSITION.md
   canonical_one_line: >-
     ContextOps and ContextBoundary are the specification layer.
@@ -152,9 +144,8 @@ composition:
       kind: publishing-surface
       role: Public website at context-stack.org
 
-  # The only files permitted to state the stack's shape. PART 92's X2 asserts
-  # canonical_one_line appears in each, byte-identical. They are aligned to it
-  # in PARTs 87-91, so X2 stays off until then.
+  # The only files permitted to state the stack's shape. X2 asserts
+  # canonical_one_line appears in each, byte-identical.
   canonical_surfaces:
     - context-stack/COMPOSITION.md
     - context-stack/README.md
@@ -163,3 +154,73 @@ composition:
     - context-stack-mcp/src/stack-catalog.js
     - kannanokannan.github.io/index.html
     - kannanokannan.github.io/repositories.html
+
+  # X3 regression: a line in any repository that matches a retired pattern, or
+  # mentions the shape (a paraphrase marker) without the canonical sentence, fails
+  # unless it is on the allowlist. X4 fails an allowlist entry that no longer
+  # matches a line, so the list stays exact. Matching is case-insensitive.
+  retired_patterns:
+  - three (sibling|governance|open-source) projects
+  - sibling (governance |open-source )?projects
+  - \bthree projects\b
+  - open-source family
+  - product layer
+  - product/adoption
+  - product/workflow
+  - above the (three|them|governance|stack)
+  - governed runtime reference
+  - runtime placement layer
+  - inherits (ContextOps|three)
+  - one stack, four questions
+  paraphrase_markers:
+  - specification layer
+  - are (the )?reference implementations
+  - are the specification\b
+  x3_excluded:
+  - context-stack/stack.yaml
+  - context-stack/COMPOSITION.md
+  allowlist:
+  - repo: Griha
+    path: CLAUDE.md
+    line: Do not describe Griha as a fourth governance pillar, a peer governance framework, a layer above the stack, a stack layer that owns execution, or the source of canonical Context Stack doctrine. Griha applies ContextOps and ContextBoundary, and Sthala's narrate/compute constraint, and demonstrates them in a concrete workflow.
+    why: 'guardrail: lists what Griha must not be called'
+  - repo: context-stack
+    path: GLOSSARY.md
+    line: '| Product layer | **Retired 2026-09-15.** Griha is a reference implementation, not a tier above anything. See COMPOSITION.md |'
+    why: the glossary row that retires the term
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '**Decision:** "Privacy tier" is banned language across all three projects.'
+    why: dated decision, 2026-05-27; read via the 2026-09-15 entry
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '- Griha remains product/workflow proof-of-concept, not a fourth governance pillar'
+    why: dated decision, 2026-06-14; superseded by the 2026-09-15 entry
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '**Decision:** The Context Stack is the specification layer. Three repositories are reference implementations that apply it.'
+    why: 2026-09-15 decision summary; the canonical sentence follows on the next line
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '- Retired: "three sibling governance projects", and any framing that puts Griha, or anything else, above the stack.'
+    why: 2026-09-15 entry quoting what it retires
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '- Supersedes the 2026-06-14 v0.2 baseline line "Griha remains product/workflow proof-of-concept". Griha is a reference implementation: a worked example for home and edge.'
+    why: 2026-09-15 entry quoting what it supersedes
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '- Where an earlier entry says "all three projects", it means the specifications and the reference implementations.'
+    why: 2026-09-15 entry reading 'all three projects'
+  - repo: context-stack
+    path: DECISIONS.md
+    line: 'These are permanent constraints across all three projects:'
+    why: standing anti-decisions; read via the 2026-09-15 entry
+  - repo: context-stack
+    path: DECISIONS.md
+    line: '- None of the three projects is a SaaS product'
+    why: standing anti-decisions; read via the 2026-09-15 entry
+  - repo: kannanokannan.github.io
+    path: index.html
+    line: <p>The stack now states what it is. ContextOps and ContextBoundary are the specification; the reference gateway, Sthala and Griha are implementations that apply it. The canonical glossary and this homepage had disagreed for months — three projects in one place, four in the other — and two outside reviewers read the four. The definition is now recorded as data alongside the repository map and checked on every run, so the surfaces cannot drift apart again without the check failing.</p>
+    why: dated news item, 2026-09-16; history is not rewritten
