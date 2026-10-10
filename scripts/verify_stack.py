@@ -11,6 +11,10 @@ A consequence worth stating: a change made in the website or MCP repository is
 not caught until this check next runs. The workflow therefore runs on a schedule
 as well as on pull requests.
 
+The composition checks (X1-X4) read every repository in the manifest from disk,
+side by side with this one. CI checks the siblings out that way; locally, run it
+from <workspace-root>/context-stack or set STACK_WORKSPACE.
+
 Run from the repository root:  python3 scripts/verify_stack.py
 Exit code 0 if every check passes, 1 otherwise. Warnings never fail the run.
 """
@@ -167,6 +171,15 @@ if not offline:
         bad("G7 contextboundary-gw appears nowhere in stack-catalog.js")
 
 # --------------------------------------------------------- composition
+#
+# The composition is asserted positively (X1, X2) and its retired wording is
+# caught as a regression (X3), across every repository in the manifest - not a
+# phrase list over four files. A repository may describe itself; it may not
+# describe the stack's shape. COMPOSITION.md is the statement, stack.yaml the data.
+#
+# Sibling repositories are read from disk, side by side with this one:
+# <workspace-root>/<id>/ for every manifest id. CI checks them out that way;
+# locally, set STACK_WORKSPACE if they are not in the parent directory.
 
 comp = manifest.get("composition", {})
 
@@ -185,25 +198,104 @@ else:
         ok("C1 composition: %d specification + %d implementation repositories, all in the manifest"
            % (len(spec), len(impl)))
 
-    # Retired wording must not survive anywhere. Case-insensitive on purpose: the
-    # first version of this check was case-sensitive and missed a capitalised
-    # "Product/adoption layer" while matching an unrelated line, which read as a
-    # plausible number rather than a failure.
-    sources = {"GLOSSARY.md": repo_map_glossary}
-    if not offline:
-        sources["stack-catalog.js"] = fetched["mcp_projects"]
-        sources["repositories.html"] = fetched["repositories_html"]
-        sources["index.html"] = fetched["index_html"]
+    canon = " ".join(str(comp.get("canonical_one_line", "")).split())
+    roles = comp.get("roles", {}) or {}
 
-    hits = []
-    for phrase in comp.get("retired_phrases", []):
-        for name, text in sources.items():
-            if phrase.lower() in text.lower():
-                hits.append("%r in %s" % (phrase, name))
-    if hits:
-        bad("C2 retired composition wording still present: " + "; ".join(hits))
+    # X1 - the data agrees with itself.
+    x1 = []
+    if not canon:
+        x1.append("canonical_one_line is empty")
+    if sorted(k for k, v in roles.items() if v.get("kind") == "specification") != sorted(spec):
+        x1.append("roles marked specification differ from the specification list")
+    if sorted(k for k, v in roles.items() if v.get("kind") == "implementation") != sorted(impl):
+        x1.append("roles marked implementation differ from the implementations list")
+    if sorted(roles) != sorted(known):
+        x1.append("roles cover %s, manifest has %s" % (sorted(roles), sorted(known)))
+    surfaces = list(comp.get("canonical_surfaces", []))
+    stray = [s for s in surfaces if s.split("/", 1)[0] not in known]
+    if stray:
+        x1.append("canonical_surfaces outside the manifest: %s" % ", ".join(stray))
+    with open(comp.get("canonical_statement", "COMPOSITION.md"), "r", encoding="utf-8") as fh:
+        statement_count = fh.read().count(canon) if canon else 0
+    if statement_count != 1:
+        x1.append("COMPOSITION.md carries the one-line form %d time(s), expected 1" % statement_count)
+    if x1:
+        bad("X1 composition data: " + "; ".join(x1))
     else:
-        ok("C2 no retired composition wording in %d surface(s)" % len(sources))
+        ok("X1 composition data is consistent: roles, lists, surfaces and COMPOSITION.md agree")
+
+    # Load every repository's text files from disk.
+    here = os.path.basename(os.path.abspath("."))
+    workspace = os.environ.get("STACK_WORKSPACE") or os.path.abspath("..")
+    TEXT = (".md", ".txt", ".html", ".js", ".mjs", ".yaml", ".yml", ".json", ".py", ".toml")
+    files = {}
+    absent = []
+    for rid in sorted(known):
+        root = os.path.abspath(".") if rid == here else os.path.join(workspace, rid)
+        if not os.path.isdir(root):
+            absent.append(rid)
+            continue
+        for dirpath, dirnames, filenames in os.walk(root):
+            dirnames[:] = [d for d in dirnames if d not in (".git", "node_modules", ".wrangler")]
+            for name in filenames:
+                if name.endswith(TEXT):
+                    path = os.path.join(dirpath, name)
+                    rel = os.path.relpath(path, root).replace(os.sep, "/")
+                    with open(path, "r", encoding="utf-8", errors="replace") as fh:
+                        files[(rid, rel)] = fh.read()
+    if absent:
+        bad("N2 sibling repositories not found under %s: %s" % (workspace, ", ".join(absent)))
+    else:
+        ok("N2 all %d repositories read from disk (%d text files)" % (len(known), len(files)))
+
+    # X2 - every canonical surface states the shape, in the canonical words.
+    x2 = []
+    for s in surfaces:
+        rid, rel = s.split("/", 1)
+        text = files.get((rid, rel))
+        if text is None:
+            x2.append("%s missing" % s)
+        elif canon not in " ".join(text.split()):
+            x2.append("%s does not carry it" % s)
+    if x2:
+        bad("X2 canonical one-line form: " + "; ".join(x2))
+    else:
+        ok("X2 all %d canonical surfaces carry the one-line form byte-identically" % len(surfaces))
+
+    # X3 - nothing else states the shape: no retired wording, no paraphrase.
+    retired = re.compile("|".join(comp.get("retired_patterns", [])), re.I)
+    paraphrase = re.compile("|".join(comp.get("paraphrase_markers", [])), re.I)
+    sources = {tuple(s.split("/", 1)) for s in (comp.get("x3_excluded", []) or [])}
+    allow = {(a["repo"], a["path"], a["line"]) for a in (comp.get("allowlist", []) or [])}
+    seen = set()
+    x3 = []
+    for (rid, rel), text in sorted(files.items()):
+        if (rid, rel) in sources:
+            continue
+        for number, line in enumerate(text.splitlines(), 1):
+            stripped = line.strip()
+            is_retired = bool(retired.pattern) and retired.search(line)
+            is_paraphrase = bool(paraphrase.pattern) and paraphrase.search(line) and canon not in line
+            if not (is_retired or is_paraphrase):
+                continue
+            if (rid, rel, stripped) in allow:
+                seen.add((rid, rel, stripped))
+                continue
+            x3.append("%s/%s:%d %s" % (rid, rel, number, stripped[:120]))
+    if x3:
+        bad("X3 %d line(s) state the shape outside the canonical words:\n      " % len(x3)
+            + "\n      ".join(x3))
+    else:
+        ok("X3 no retired wording or paraphrase in %d files (%d allowlisted line(s))"
+           % (len(files), len(seen)))
+
+    # X4 - the allowlist is exact: every entry still matches a real line.
+    stale = sorted(allow - seen)
+    if stale:
+        bad("X4 allowlist entries that no longer match any line: "
+            + "; ".join("%s/%s: %s" % (r, p, l[:80]) for r, p, l in stale))
+    else:
+        ok("X4 every allowlist entry matches a line (%d)" % len(allow))
 
 # --------------------------------------------------------------- summary
 
